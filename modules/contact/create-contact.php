@@ -193,7 +193,7 @@
             if (isset($_GET['code'])) {
                 echo '<div class="message">';
                 if ($_GET['code'] == 1) {
-                    echo "Successfully added!";
+                    echo "Successfully added !";
                 }
                 if ($_GET['code'] == 2) {
                     echo "<span class='error'>Failed to add, please fill all required fields.</span>";
