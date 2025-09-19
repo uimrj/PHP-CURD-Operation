@@ -1,49 +1,127 @@
-# PHP-CRUD
+# PHP CRUD Contact Management System
 
-This is a simple PHP CRUD App that allows you to create, read, update, and delete data from a MySQL database (using PDO).
+A simple **PHP CRUD (Create, Read, Update, Delete) application** for managing contacts. This project uses **PHP, MySQL, PDO, and Dotenv** for configuration. It’s lightweight, easy to use, and designed for beginners who want to practice full-stack PHP development.
 
-## To run the app
+---
 
-follow these steps:
+## 🚀 Features
 
-1. Clone the repository and open the project:
+- Add new contacts with full details:
+  - Full Name
+  - Nickname
+  - Email
+  - Phone
+  - Address
+  - Contact Type (Friend / Business)
+- List all contacts in a modern, responsive table.
+- Edit existing contacts.
+- Delete contacts with confirmation.
+- User-friendly messages for success and errors.
+- Modern UI with icons and hover effects.
+
+---
+
+## 🛠️ Technologies Used
+
+- PHP 8.x
+- MySQL / MariaDB
+- PDO for database interactions
+- Dotenv for environment configuration
+- HTML, CSS, and Font Awesome for UI
+- XAMPP (Apache + MySQL)
+
+---
+
+## 📁 Project Structure
 
 ```
-   git clone https://github.com/Muhammed-Burhan/PHP-CURD.git
+PHP-CURD/
+│
+├─ assets/           # CSS and static files
+├─ config/           # Database connection and config files
+├─ modules/          # CRUD modules (list, create, edit, delete)
+├─ vendor/           # Composer dependencies
+├─ .env              # Environment variables (DB credentials)
+├─ composer.json     # Composer configuration
+└─ README.md         # Project documentation
 ```
 
-2. install the necessary packages using composer:
+---
 
-```
-   composer install
-```
+## ⚡ Installation & Setup
 
-3. create `.env` file and add `database` variables.
+1. **Clone the repository** into your XAMPP `htdocs` folder:
 
-4. open XAMPP and start apache and mysql (you must clone the project in xamp/htdocs folder).
-
-5. go to your browser and paste this URL:
-
-```
-   http://localhost/crud/modules/contact/list-contact.php
+```bash
+git clone https://github.com/your-username/PHP-CURD.git
 ```
 
-## Contacts Table
+2. **Create a MySQL database**:
 
-The Contacts table stores information about individual contacts in the system.
+```sql
+CREATE DATABASE crud_db;
+```
 
-### Structure
+3. **Create the `contacts` table**:
 
-The table has the following columns:
+```sql
+CREATE TABLE contacts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    full_name VARCHAR(100) NOT NULL,
+    nickname VARCHAR(50),
+    email VARCHAR(100),
+    phone VARCHAR(20) NOT NULL,
+    address VARCHAR(255),
+    contact_type_id INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+```
 
-| Column            | Type    | Description                        |
-| ----------------- | ------- | ---------------------------------- |
-| `id`              | integer | Unique identifier for each contact |
-| `contact_type_id` | integer | Business or friend contact         |
-| `full_name`       | string  | First name of the contact          |
-| `nickname`        | string  | nickname of the contact            |
-| `email`           | string  | Email address of the contact       |
-| `phone`           | string  | Phone number of the contact        |
-| `address`         | string  | Address of the contact             |
+4. **Create a `.env` file** in the root directory:
 
-The `id` column is the primary key in the table and it's set to auto increment.
+```
+DB_HOST=localhost
+DB_DATABASE=crud_db
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+5. **Start XAMPP** and enable **Apache** and **MySQL**.
+
+6. **Install dependencies with Composer** (if used):
+
+```bash
+composer install
+```
+
+7. **Open the project in your browser**:
+
+```
+http://localhost/PHP-CURD/modules/contact/list-contact.php
+```
+
+---
+
+## ✅ Usage
+
+- **Add Contact:** `create-contact.php`
+- **List Contacts:** `list-contact.php`
+- **Edit Contact:** `edit-contact.php?id={id}`
+- **Delete Contact:** `delete-contact.php?id={id}` (with confirmation)
+
+---
+
+## 📌 Notes
+
+- Ensure **XAMPP’s PHP version >= 8.0** for compatibility.
+- Make sure the **`vendor/` directory exists** if using Composer.
+- Adjust database credentials in `.env` according to your setup.
+
+---
+
+## 💻 Author
+
+**Rishabh Jain**  
+Aspiring PHP & DevOps Engineer | Open-Source Contributor
+
+---
